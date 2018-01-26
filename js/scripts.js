@@ -3,8 +3,8 @@ var newGameBtn = document.getElementById('js-newGameButton');
 newGameBtn.addEventListener('click', newGame);
 
 var pickRock = document.getElementById('js-playerPick_rock'),
-     pickPaper = document.getElementById('js-playerPick_paper'),
-     pickScissors = document.getElementById('js-playerPick_scissors');
+    pickPaper = document.getElementById('js-playerPick_paper'),
+    pickScissors = document.getElementById('js-playerPick_scissors');
 
 pickRock.addEventListener('click', function() { playerPick('rock') });
 pickPaper.addEventListener('click', function() { playerPick('paper') });
@@ -54,14 +54,9 @@ function newGame() {
 
     playerNameElem.innerHTML = player.name;
     setGamePoints(); 
-    checkIfGameOver();
   }
 
 }
-
-//function playerPick(playerPick) {
-//   console.log(playerPick);
-//}
 
 function getComputerPick() {
     var possiblePicks = ['rock', 'paper', 'scissors'];
@@ -73,12 +68,6 @@ var playerPickElem = document.getElementById('js-playerPick'),
     playerResultElem = document.getElementById('js-playerResult'),
     computerResultElem = document.getElementById('js-computerResult');
 
-//function playerPick(playerPick) {
-  //  var computerPick = getComputerPick();
-
-    //playerPickElem.innerHTML = playerPick;
-    //computerPickElem.innerHTML = computerPick;
-//}
 
 function checkRoundWinner(playerPick, computerPick) {
   playerResultElem.innerHTML = computerResultElem.innerHTML = '';
@@ -98,10 +87,14 @@ function checkRoundWinner(playerPick, computerPick) {
     if (winnerIs == 'player') {
     	player.score++;
         playerResultElem.innerHTML = "Win!" + player.score;
+        setGamePoints();
+        checkIfGameOver();
 
     } else if (winnerIs == 'computer') {
     	computer.score++;
         computerResultElem.innerHTML = "Win!" + computer.score;
+        setGamePoints();
+        checkIfGameOver();
     }
 
 }
@@ -121,12 +114,13 @@ function setGamePoints() {
 }
 function checkIfGameOver() {
     if (player.score == 3) {
-    	playerResultElem.innerHTML = "Player Wins the Game!";
+    	alert ("Player Wins the Game!");
     	gameState = 'ended';
 		setGameElements();
     }
     else  if (computer.score == 3) {
 		computerResultElem.innerHTML = "Computer Wins the Game!"
+        alert ("Computer Wins the Game!")
 		gameState = 'ended';
 		setGameElements();
 	}
