@@ -86,13 +86,13 @@ function checkRoundWinner(playerPick, computerPick) {
 
     if (winnerIs == 'player') {
     	player.score++;
-        playerResultElem.innerHTML = "Win!" + player.score;
+        playerResultElem.innerHTML = "Win!";
         setGamePoints();
         checkIfGameOver();
 
     } else if (winnerIs == 'computer') {
     	computer.score++;
-        computerResultElem.innerHTML = "Win!" + computer.score;
+        computerResultElem.innerHTML = "Win!";
         setGamePoints();
         checkIfGameOver();
     }
